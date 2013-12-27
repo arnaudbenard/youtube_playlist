@@ -22,7 +22,11 @@ $( "#search_youtube" ).submit(function( event ) {
 	$term = $('#term').val();
 	query_str = 'yt/search?term=' + $term;
 	$.get( query_str, function( data ) {
-		console.log(data);
+		$('#result').empty();
+		for(val in data) {
+			result_str = "<li>" + data[val].title  + "</li>"
+			$('#result').append(result_str);
+		}
 	});	
 
 });

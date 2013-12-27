@@ -15,12 +15,12 @@ class JukeboxesController < ApplicationController
   def search_video
     @result = Jukebox.search_on_youtube(params['term'])
 
-    @result.videos.each do |video|
+    @result_json = []
 
-      puts video.title
-      puts video.video_id
+    @result.videos.each do |video|
+      @result_json << { "title"=> video.title, "url" => video.media_content.first.url }
     end
-    render :nothing => true
+    render :json => @result_json
   end
 
   # GET /jukeboxes/new
