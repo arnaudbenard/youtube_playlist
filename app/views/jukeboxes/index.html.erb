@@ -1,0 +1,29 @@
+<h1>Listing jukeboxes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>List</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jukeboxes.each do |jukebox| %>
+      <tr>
+        <td><%= jukebox.title %></td>
+        <td><%= jukebox.list %></td>
+        <td><%= link_to 'Show', jukebox %></td>
+        <td><%= link_to 'Edit', edit_jukebox_path(jukebox) %></td>
+        <td><%= link_to 'Destroy', jukebox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jukebox', new_jukebox_path %>
