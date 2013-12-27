@@ -1,0 +1,25 @@
+
+<form action="#" id="search_youtube" class="form-inline">
+	<div class="form-group">
+		<input type="text" class="form-control" id="term" placeholder="search for a video">
+		<input type="submit"  class="btn form-control">
+	</div>
+</form>
+
+<div id="result"></div>
+
+<script>
+$( "#search_youtube" ).submit(function( event ) {
+	event.preventDefault();
+	$term = $('#term').val();
+	query_str = 'yt/search?term=' + $term;
+	$.get( query_str, function( data ) {
+		$('#result').empty();
+		for(val in data) {
+			result_str = "<li>" + data[val].title  + "</li>"
+			$('#result').append(result_str);
+		}
+	});	
+
+});
+</script>

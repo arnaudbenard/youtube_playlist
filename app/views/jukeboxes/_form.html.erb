@@ -11,15 +11,11 @@
     </div>
   <% end %>
 
-  <%= f.fields_for Video.new do |video| %>
-    Add link
-    <%= video.text_field :title %>
-  <% end %>
-
   <div class="field">
-    <%= f.label :title %><br>
+    Title
     <%= f.text_field :title %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
