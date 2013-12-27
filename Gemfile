@@ -9,6 +9,8 @@ gem 'pg'
 # Devise for the user auth
 gem 'devise'
 
+gem 'youtube_it'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -45,4 +47,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

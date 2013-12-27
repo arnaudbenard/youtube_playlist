@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
+<h1>search</h1>
+<form action="#" id="search_youtube">
+	<input type="text" id="term">
+	<input type="submit">
+</form>
+
+<div id="result"></div>
 
 <p>
   <strong>Title:</strong>
   <%= @jukebox.title %>
 </p>
 
-<p>
-  <strong>List:</strong>
-  <%= @jukebox.list %>
-</p>
 
 <%= link_to 'Edit', edit_jukebox_path(@jukebox) %> |
 <%= link_to 'Back', jukeboxes_path %>
+
+<script>
+$( "#search_youtube" ).submit(function( event ) {
+	event.preventDefault();
+	$term = $('#term').val();
+	query_str = 'yt/search?term=' + $term;
+	$.get( query_str, function( data ) {
+		console.log(data);
+	});	
+
+});
+
+</script>

@@ -12,6 +12,17 @@ class JukeboxesController < ApplicationController
   def show
   end
 
+  def search_video
+    @result = Jukebox.search_on_youtube(params['term'])
+
+    @result.videos.each do |video|
+
+      puts video.title
+      puts video.video_id
+    end
+    render :nothing => true
+  end
+
   # GET /jukeboxes/new
   def new
     @jukebox = Jukebox.new

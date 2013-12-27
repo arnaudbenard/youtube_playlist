@@ -8,6 +8,8 @@ YoutubeJukebox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'jukeboxes#index'
+  
+  get 'yt/search' =>'jukeboxes#search_video'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
